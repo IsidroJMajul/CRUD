@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content%}
+    <h1>Crear empleado</h1>
+
+    <!-- Para subir ARCHIVOS, es necesario hacerlo por method='post' + enctype ="multipart/form-data"-->
+    <form action="/store" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="nombre" class="form-label">Nombre: </label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Coloque nombre y apellido completos">
+        </div>
+        <div>
+            <label for="email" class="form-label">email: </label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Coloque su email principal">
+        </div>
+        <div>
+            <label for="imagen" class="form-label">Foto: </label>
+            <input type="file" class="form-control" id="imagen" name="imagen">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        <a href="/" class="btn btn-secondary mt-3">Cancelar</a>
+    </form>
+
+{% endblock %}

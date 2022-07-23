@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    CRUD - EDIT
+{% endblock %}
+
+{% block content %}
+    <h1>Editar empleado</h1>
+
+    <!-- Para subir ARCHIVOS, es necesario hacerlo por method='post' + enctype ="multipart/form-data"-->
+    <form action="/update" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ empleado ['id'] }}">
+        <div>
+            <label for="nombre" class="form-label">Nombre: </label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ empleado ['nombre'] }}">
+        </div>
+        <div>
+            <label for="email" class="form-label">email: </label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ empleado['correo'] }}" required>
+        </div>
+        <div>
+            <label for="imagen" class="form-label">Foto: </label>
+            <input type="file" class="form-control" id="imagen" name="imagen">
+            <img width="100" class="mt-2" src="{{ url_for('uploads', imagen=empleado['imagen']) }}">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        <a href="/" class="btn btn-secondary mt-3">Cancelar</a>
+    </form>
+{% endblock %}
